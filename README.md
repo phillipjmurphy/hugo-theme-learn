@@ -1,4 +1,8 @@
-# Hugo Learn Theme
+# Fork for my personal use. 
+
+## Thanks. 
+
+## Hugo Learn Theme (My Fork.)
 
 This repository contains a theme for [Hugo](https://gohugo.io/), based on great [Grav Learn Theme](https://learn.getgrav.org/).
 
