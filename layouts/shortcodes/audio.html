@@ -1,4 +1,37 @@
-<audio controls>
-	<source id="pg-audio" src="{{.Get "src" }}" type="audio/mpeg">
+
+<span onclick="rateDecrease()"><i class="fas fa-fast-backward"></i></span>
+<span onclick="rateIncrease()"><i class="fas fa-fast-forward"></i></span>
+<i id="pg-play-rate">1</i>
+<br>
+<audio id="pg-audio" controls ontimeupdate="pg_audio_update(this)">
+	<source  src="{{.Get "src" }}" type="audio/mpeg">
 	Your browser does not support the audio tag.
 </audio>
+
+<span onclick="show_json()"><i class="fas fa-adjust"></i></span>
+
+<script type="text/javascript" src="audio/page_001.json"></script>
+<script>
+	var audio = document.getElementById("pg-audio");
+	var rate_label = document.getElementById("pg-play-rate");
+	var tData = JSON.parse(page_001);
+	function rateIncrease() { 
+		audio.playbackRate = audio.playbackRate + 0.5;
+		rate_label.innerHTML = audio.playbackRate;
+		// alert(audio.playbackRate);
+	} 
+	
+	function rateDecrease() { 
+		audio.playbackRate = audio.playbackRate - 0.5;
+		rate_label.innerHTML = audio.playbackRate;
+		
+	}
+	function pg_audio_update(event){
+		console.log(event.currentTime);
+	}
+
+	function show_json(){
+		console.log(page_001);
+	}
+
+</script> 
